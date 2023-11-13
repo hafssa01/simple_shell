@@ -28,14 +28,13 @@ int main(int ac, char **argv)
         if (!cmd)
             continue;
 
-        for (i = 0; cmd[i]; i++)
+        for (i = 0; cmd
+			[i]; i++)
         {
             printf("%s\n", cmd[i]);
             free(cmd[i]), cmd[i] = NULL;
         }
         free(cmd), cmd = NULL;
 
-
-        /*sts = execute_cmd(cmd, argv);*/
     }
 }
