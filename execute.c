@@ -20,12 +20,12 @@ void execute_cmd(const char *cmd)
     if(WIFEXITED(status))
     {
         int exit_stat = WIFEXITED(status);
-        p_print(exit_stat);
+        printf("%d", exit_stat);
     }
     else if (WIFSIGNALED(status))
     {
         int signal_ = WIFSIGNALED(status);
-        p_print(signal_);
+        printf("%d", signal_);
     }
     } 
 }       
