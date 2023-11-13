@@ -19,8 +19,8 @@ void execute_cmd(const char *cmd)
 
     if(WIFEXITED(status))
     {
-        int exist_stat = WIFEXITED(status);
-        p_print(exist_stat);
+        int exit_stat = WIFEXITED(status);
+        p_print(exit_stat);
     }
     else if (WIFSIGNALED(status))
     {
