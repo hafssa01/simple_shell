@@ -9,14 +9,13 @@
 int main(int ac, char **argv)
 {
     char *line = NULL, **cmd = NULL;
-    /*char **cmd = NULL;*/
-    int sts = 0, i;
+    int sts = 0;
     (void) ac;
-    (void) argv;
+
 
     while (1)
     {
-        line = rdg_line();
+        line = read_line();
         if (line == NULL) /* Reach EOF CTRL + D*/
         {
             if (isatty(STDIN_FILENO))
@@ -28,14 +27,9 @@ int main(int ac, char **argv)
         if (!cmd)
             continue;
 
-        for (i = 0; cmd[i]; i++)
-        {
-            printf("%s\n", cmd[i]);
-            free(cmd[i]), cmd[i] = NULL;
-        }
-        free(cmd), cmd = NULL;
 
 
-        /*sts = execute_cmd(cmd, argv);*/
+        sts = execute_cmd(cmd, argv); /*Execute line*/
+
     }
 }
