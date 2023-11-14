@@ -27,9 +27,20 @@ int main(int ac, char **argv)
         if (!cmd)
             continue;
 
+<<<<<<< HEAD
 
 
         sts = execute_cmd(cmd, argv); /*Execute line*/
 
+=======
+        for (i = 0; cmd
+			[i]; i++)
+        {
+            printf("%s\n", cmd[i]);
+            free(cmd[i]), cmd[i] = NULL;
+        }
+        free(cmd), cmd = NULL;
+
+>>>>>>> 340cbdef06cbc9a685a6818105bb146e1ab57506
     }
 }
