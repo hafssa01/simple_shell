@@ -11,19 +11,19 @@ int main(int ac, char **argv)
     char *line = NULL, **cmd = NULL;
     int sts = 0;
     (void) ac;
-
-
-    while (1)
+if (isatty(STDIN_FILENO)){
+   while (1)
     {
         line = read_line();
         if (line == NULL) /* Reach EOF CTRL + D*/
         {
-            if (isatty(STDIN_FILENO))
-                write(STDOUT_FILENO, "\n", 1);
+            write(STDOUT_FILENO, "\n", 1);
             return (sts);
         }
-
-        cmd = tokenizer(line);
+	    execute();
+    }
+}    
+ cmd = tokenizer(line);
         if (!cmd)
             continue;
 
