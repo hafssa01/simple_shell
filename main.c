@@ -9,7 +9,7 @@
 int main(int ac, char **argv)
 {
     char *line = NULL, **cmd = NULL;
-    int sts = 0;
+    int sts = 0, idx = 0;
     (void) ac;
 
 
@@ -22,25 +22,13 @@ int main(int ac, char **argv)
                 write(STDOUT_FILENO, "\n", 1);
             return (sts);
         }
-
+        idx++;
+        
         cmd = tokenizer(line);
         if (!cmd)
             continue;
 
-<<<<<<< HEAD
+        sts = execute_cmd(cmd, argv, idx); /*Execute line*/
 
-
-        sts = execute_cmd(cmd, argv); /*Execute line*/
-
-=======
-        for (i = 0; cmd
-			[i]; i++)
-        {
-            printf("%s\n", cmd[i]);
-            free(cmd[i]), cmd[i] = NULL;
-        }
-        free(cmd), cmd = NULL;
-
->>>>>>> 340cbdef06cbc9a685a6818105bb146e1ab57506
     }
 }
