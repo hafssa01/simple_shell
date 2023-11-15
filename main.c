@@ -6,22 +6,25 @@
  * @av: Arguments
  * Return: 0 Always (success)
 */
-int main(int ac, char **argv)
+int main(void) {
+    char *cmd;
+if(isatty(STDIN_FILENO))
 {
+<<<<<<< HEAD
     char *line = NULL, **cmd = NULL;
     int sts = 0, idx = 0;
     (void) ac;
+=======
+ while(1) {
+        printf("M&H-$ ");
+        cmd = read_line();
+>>>>>>> 9597fd9f867579baeaf1b0951d63b6140fcba150
 
-
-    while (1)
-    {
-        line = read_line();
-        if (line == NULL) /* Reach EOF CTRL + D*/
-        {
-            if (isatty(STDIN_FILENO))
-                write(STDOUT_FILENO, "\n", 1);
-            return (sts);
+        if (cmd != NULL) {
+            execute(cmd);
+            free(cmd);
         }
+<<<<<<< HEAD
         idx++;
         
         cmd = tokenizer(line);
@@ -31,4 +34,9 @@ int main(int ac, char **argv)
         sts = execute_cmd(cmd, argv, idx); /*Execute line*/
 
     }
+=======
+    } 
+}
+    return EXIT_SUCCESS;
+>>>>>>> 9597fd9f867579baeaf1b0951d63b6140fcba150
 }
